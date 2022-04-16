@@ -1,0 +1,19 @@
+import React from "react";
+import { useSelector } from "react-redux";
+import Header from "../../Components/Header";
+import AdminPage from "../../Images/admin.jpg"
+const AdminHomeScreen = (props) => {
+  const userSignIn = useSelector((store) => store.userSignIn);
+  return (
+    <div className="Screen">
+      {!userSignIn.response && <Header title="You are not logged in" />}
+      {userSignIn.response && (
+        <Header title={"Welcome " + userSignIn.response.data.firstName} />
+        
+      )}
+      <img src={AdminPage} height={400} width={1080} alt='Eco Friendly Products'/>
+    </div>
+  );
+};
+
+export default AdminHomeScreen;
